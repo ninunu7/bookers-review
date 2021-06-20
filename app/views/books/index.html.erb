@@ -23,6 +23,13 @@
   </tbody>
 </table>
 
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+<% end %>
+
 <h1>New Books</h1>
 <%= form_with model:@book, local:true do |f| %>
   <p>title</p>
